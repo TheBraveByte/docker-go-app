@@ -1,0 +1,21 @@
+version: '3'
+services:
+  go-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - /usr/app/go.mod go.sum
+      - $(pwd):/usr/app
+  go-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - /usr/app/go.mod go.sum
+      - $(pwd):/usr/app
+    command: ["go","test"]
