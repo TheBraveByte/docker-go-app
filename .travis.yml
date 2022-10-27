@@ -1,0 +1,11 @@
+# Add the root user command
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t dev-ayaa/docker-go-app -f Dockerfile.dev
+
+script:
+  - docker run 7e8bf60b3863 go test -v

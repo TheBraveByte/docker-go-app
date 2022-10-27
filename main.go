@@ -18,7 +18,7 @@ func main() {
 	mux.HandleFunc("/", homeHandler)
 
 	srv := http.Server{
-		Addr:    ":4000",
+		Addr:    ":4040",
 		Handler: mux,
 	}
 	err := srv.ListenAndServe()
