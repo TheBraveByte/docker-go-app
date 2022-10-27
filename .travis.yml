@@ -8,4 +8,4 @@ before_install:
   - docker build -t dev-ayaa/docker-go-app -f Dockerfile.dev
 
 script:
-  - docker run 7e8bf60b3863 go test -v
+  - docker run 7e8bf60b3863 go test -v ./... coverprofile cover.out
