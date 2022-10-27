@@ -5,17 +5,23 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - "4000:4000"
+      - "5000:5000"
     volumes:
       - /usr/app/go.mod go.sum
-      - $(pwd):/usr/app
+      - .:/usr/app
   go-test:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    ports:
-      - "4000:4000"
     volumes:
       - /usr/app/go.mod go.sum
-      - $(pwd):/usr/app
-    command: ["go","test"]
+      - .:/usr/app
+    command:
+      [
+        "go",
+        "test",
+        "-v",
+      ]
+#  "./...",
+#         "-coverprofile",
+#         "cover.out"
